@@ -86,18 +86,15 @@
 		        .orient("bottom")
 		        .tickFormat(function(d,i) {
 		            //specify date format for x axis depending on #graphic width
-		            var fmt2 = d3.time.format("%Y");
-						var plus = (parseInt(fmt2(d))+1);
-					
-					if (graphic.width() <= threshold_sm) {
+		            if (graphic.width() <= threshold_sm) {
 		                var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[0]);
-						return '\u2019' + fmt(d)+"-"+plus.toString().substr(2,4);
+		                return '\u2019' + fmt(d);
 		            } else if (graphic.width() <= threshold_md){
 		                var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[1]);
-		                return  fmt(d)+"-"+plus.toString().substr(2,4);
+		                return  fmt(d);
 		            } else {
 		                var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[2]);
-		                return fmt(d)+"-"+plus.toString().substr(2,4);
+		                return fmt(d);
 		            }
 		        })
 				.tickPadding(5)
